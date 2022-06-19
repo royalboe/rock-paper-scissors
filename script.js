@@ -14,21 +14,21 @@ let playerSelection = prompt("Rock, Paper or Scissors? : ")
 console.log(playerSelection)
 
 let getWinner = (computerChoice, playerSelection) => {
-    if (computerChoice === 'Rock' && playerSelection === /Rock/ 
-    || computerChoice === 'Paper' && playerSelection === /Paper/
-    || computerChoice === 'Scissors' && playerSelection === /Scissors/) {
+    if (computerChoice === 'Rock' && playerSelection.toUpperCase() === "ROCK" 
+    || computerChoice === 'Paper' && playerSelection.toUpperCase() === "PAPER"
+    || computerChoice === 'Scissors' && playerSelection.toUpperCase() === "SCISSORS") {
         return "That is a tie!"
-    } else if (computerChoice === 'Rock' && playerSelection === "Scissors") {
+    } else if (computerChoice === 'Rock' && playerSelection.toUpperCase() === "SCISSORS") {
         return "Computer wins, you chose Scissors and computer chose Rock"
-    } else if (computerChoice === 'Scissors' && playerSelection === "Paper") {
+    } else if (computerChoice === 'Scissors' && playerSelection.toUpperCase() === "PAPER") {
         return "Computer wins, you chose Paper and computer chose Scissors"
-    } else if (computerChoice === 'Paper' && playerSelection === "Rock") {
+    } else if (computerChoice === 'Paper' && playerSelection.toUpperCase() === "ROCK") {
         return "Opps. you lost. Computer chose Paper and you chose Rock"
-    }  else if (computerChoice === 'Scissors' && playerSelection === "Rock") {
+    }  else if (computerChoice === 'Scissors' && playerSelection.toUppercase() === "ROCK") {
         return "Computer wins, you chose Scissors and computer chose Rock"
-    } else if (computerChoice === 'Paper' && playerSelection === "Scissors") {
+    } else if (computerChoice === 'Paper' && playerSelection.toUpperCase() === "SCISSORS") {
         return "Computer wins, you chose Paper and computer chose Scissors"
-    } else if (computerChoice === 'Rock' && playerSelection === "Paper") {
+    } else if (computerChoice === 'Rock' && playerSelection.toUpperCase() === "PAPER") {
         return "Opps. you lost. Computer chose Paper and you chose Rock"
     }
 }
