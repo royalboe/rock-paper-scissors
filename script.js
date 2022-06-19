@@ -10,4 +10,25 @@ let computerChoice = computerPlay => {
     } else return choices[2]
 };
 
-console.log(`Computer chose ${computerChoice(computerPlay())}`)
+let playerSelection = prompt("Rock, Paper or Scissors? : ")
+
+let getWinner = (computerChoice, playerSelection) => {
+    if (computerChoice === 'Rock' && playerSelection === /Rock/ 
+    || computerChoice === 'Paper' && playerSelection === /Paper/
+    || computerChoice === 'Scissors' && playerSelection === /Scissors/) {
+        return "That is a tie!"
+    } else if (computerChoice === 'Rock' && playerSelection === /Scissors/) {
+        return "Computer wins, you chose Scissors and computer chose Rock"
+    } else if (computerChoice === 'Scissors' && playerSelection === /Paper/) {
+        return "Computer wins, you chose Paper and computer chose Scissors"
+    } else if (computerChoice === 'Paper' && playerSelection === /Rock/) {
+        return "Opps. you lost. Computer chose Paper and you chose Rock"
+    }  else if (computerChoice === 'Scissors' && playerSelection === /Rock/) {
+        return "Computer wins, you chose Scissors and computer chose Rock"
+    } else if (computerChoice === 'Paper' && playerSelection === /Scissors/) {
+        return "Computer wins, you chose Paper and computer chose Scissors"
+    } else if (computerChoice === 'Rock' && playerSelection === /Paper/) {
+        return "Opps. you lost. Computer chose Paper and you chose Rock"
+    }
+}
+console.log(`${getWinner(computerChoice(computerPlay()), playerSelection())}`)
