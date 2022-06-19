@@ -10,3 +10,4 @@ let computerChoice = computerPlay => {
     } else return choices[2]
 };
 
+console.log(`Computer chose ${computerChoice(computerPlay())}`)
