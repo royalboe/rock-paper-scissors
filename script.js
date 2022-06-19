@@ -1,5 +1,7 @@
 let choices = ['Rock', 'Paper', 'Scissors']
 
+let playerSelection = prompt("Rock, Paper or Scissors? : ")
+
 let computerPlay = () => Math.round(2 * Math.random());
 
 let computerChoice = computerPlay => {
@@ -10,39 +12,38 @@ let computerChoice = computerPlay => {
     } else return choices[2]
 };
 
+let computerSelection = computerChoice(computerPlay)
+
 let computerScore = 0;
 let playerScore = 0;
 
 function gameOn() {
-    let playerSelection = prompt("Rock, Paper or Scissors? : ")
-    console.log(playerSelection)
-
-    let getWinner = (computerChoice, playerSelection) => {
-        if (computerChoice === 'Rock' && playerSelection.toUpperCase() === "ROCK" 
-        || computerChoice === 'Paper' && playerSelection.toUpperCase() === "PAPER"
-        || computerChoice === 'Scissors' && playerSelection.toUpperCase() === "SCISSORS") {
+    let getWinner = (computerSelection, playerSelection) => {
+        if (computerSelection === 'Rock' && playerSelection.toUpperCase() === "ROCK" 
+        || computerSelection === 'Paper' && playerSelection.toUpperCase() === "PAPER"
+        || computerSelection === 'Scissors' && playerSelection.toUpperCase() === "SCISSORS") {
             return "That is a tie!"
-        } else if (computerChoice === 'Rock' && playerSelection.toUpperCase() === "SCISSORS") {
+        } else if (computerSelection === 'Rock' && playerSelection.toUpperCase() === "SCISSORS") {
             computerScore++
             return "Computer wins, you chose Scissors and computer chose Rock"
-        } else if (computerChoice === 'Scissors' && playerSelection.toUpperCase() === "PAPER") {
+        } else if (computerSelection === 'Scissors' && playerSelection.toUpperCase() === "PAPER") {
             computerScore++
             return "Computer wins, you chose Paper and computer chose Scissors"
-        } else if (computerChoice === 'Paper' && playerSelection.toUpperCase() === "ROCK") {
+        } else if (computerSelection === 'Paper' && playerSelection.toUpperCase() === "ROCK") {
             computerScore++
             return "Opps. you lost. Computer chose Paper and you chose Rock"
-        }  else if (computerChoice === 'Scissors' && playerSelection.toUpperCase() === "ROCK") {
+        }  else if (computerSelection === 'Scissors' && playerSelection.toUpperCase() === "ROCK") {
             playerScore++
             return "Computer wins, you chose Scissors and computer chose Rock"
-        } else if (computerChoice === 'Paper' && playerSelection.toUpperCase() === "SCISSORS") {
+        } else if (computerSelection === 'Paper' && playerSelection.toUpperCase() === "SCISSORS") {
             playerScore++
             return "Computer wins, you chose Paper and computer chose Scissors"
-        } else if (computerChoice === 'Rock' && playerSelection.toUpperCase() === "PAPER") {
+        } else if (computerSelection === 'Rock' && playerSelection.toUpperCase() === "PAPER") {
             playerScore++
             return "Opps. you lost. Computer chose Paper and you chose Rock"
         }
     }
-    console.log(`${getWinner(computerChoice(computerPlay()), playerSelection)}`)
+    console.log(`${getWinner(computerSelection, playerSelection)}`)
 }
 
 let i;
