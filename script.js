@@ -10,9 +10,10 @@ let computerChoice = computerPlay => {
     } else return choices[2]
 };
 
+let computerScore = 0;
+let playerScore = 0;
+
 function gameOn() {
-    let computerScore = 0;
-    let playerScore = 0;
     let playerSelection = prompt("Rock, Paper or Scissors? : ")
     console.log(playerSelection)
 
