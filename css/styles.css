@@ -1,0 +1,14 @@
+#selectn-btn {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#selectn-btn > button {
+    border: 1px solid green;
+    padding: 8px;
+    background-color: black;
+    color: aliceblue;
+}
