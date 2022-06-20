@@ -1,4 +1,11 @@
+/* Get DOM */
 
+const btnNode = document.querySelectorAll('#selectn-btn > button');
+const winner = document.querySelector('#winner');
+const displayScore = document.querySelector('#score');
+const contentDiv = document.querySelector('#content-div');
+
+/* Game logic */
 let computerPlay = () => {
     let choices = ['Rock', 'Paper', 'Scissors']
     let i = Math.floor(3 * Math.random());
@@ -44,16 +51,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let computerSelection = computerPlay();
-    let playerSelection = prompt("Pick Rock, Paper or Scissors");
-    console.log(playRound(playerSelection, computerSelection));
-}
+let round = 0;
+let computerSelection;
 
-for (let i = 0; i < 5; i++) {
-    game();
-}
-
-let winner = playerScore > computerScore ? "You Win!" : "You Lose!";
-
-console.log(winner);
+btnNode.forEach((button) => {
+    // For each button we added an event listener
+    button.addEventListener('click', () => {
+        // Got the computer play
+        computerSelection = computerPlay();
+        const newPara = document.createElement('p');
+        ++round;
+        newPara.textContent = `Round ${round} Result: ${playRound(button.id, computerSelection)}`;
+        newPara.style.cssText = 'border: 1px solid blue; color: green'
+        contentDiv.insertBefore(newPara, displayScore)
+        displayScore.textContent += `Player: ${playerScore} vs Computer: ${computerScore}`;
+        if (playerScore == 5 || computerScore == 5) {
+            winner.textContent += playerScore > computerScore ? "You Win!" : "You Lose!";
+        }
+    })
+});
