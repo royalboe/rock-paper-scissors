@@ -64,7 +64,7 @@ btnNode.forEach((button) => {
         newPara.textContent = `Round ${round} Result: ${playRound(button.id, computerSelection)}`;
         newPara.style.cssText = 'border: 1px solid blue; color: green'
         contentDiv.insertBefore(newPara, displayScore)
-        displayScore.textContent += `Player: ${playerScore} vs Computer: ${computerScore}`;
+        displayScore.textContent = `Player: ${playerScore} vs Computer: ${computerScore}`;
         if (playerScore == 5 || computerScore == 5) {
             winner.textContent += playerScore > computerScore ? "You Win!" : "You Lose!";
         }
